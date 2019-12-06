@@ -1,6 +1,6 @@
 
 //This represent the different cases the Robot could run in to
-enum Mode {NO_WALL, CONT_LINE, CROSS, LEFT_TURN_ONLY, RIGHT_TURN_ONLY};
+enum Mode {NO_WALL, CONT_LINE, CROSS, LEFT_TURN_ONLY, RIGHT_TURN_ONLY, WALL, CONT_LINE_L, CONT_LINE_R};
 Mode mode;
 
 
@@ -19,7 +19,7 @@ const int button = 7;
 long frontDistance;
 long rightDistance;
 //This delay is how long the motors need to run to make a 90 degree turn
-int turnDelay = 250;
+int turnDelay = 755;
 int buttonState = 0;
 int buttonCount = 0;
 bool onOrOff = false;
@@ -65,34 +65,19 @@ void loop()
 
   frontDistance = findDistance(frontSensorTrigger, frontSensorEcho);
   //The serial.print fucntions were used for calibrating the distance and what we should use for turning thresholds
-  Serial.print("front sensor distance is: ");
-  Serial.println(frontDistance);
+  //Serial.print("front sensor distance is: ");
+  // Serial.println(frontDistance);
 
   rightDistance = findDistance(rightSensorTrigger, rightSensorEcho);
   Serial.print("Right sensor distance is: ");
   Serial.println(rightDistance);
-
 
   if (onOrOff)
   {
     mode = findCase(frontDistance, rightDistance);
     switch (mode)
     {
-      case CROSS:
-        Stop();
-        delay(100);
-        
-//This is because the right sensor is far foward on the arduino this is an adjustment to make it drive forward enough to make the corner.
-        drive();
-        delay(200);
-        Stop();
-        delay(1000);
-        rotateRight();
-        delay(turnDelay);
-        Stop();
-        drive();
-        delay(85);
-        Stop();
+
 
       case LEFT_TURN_ONLY:
 
@@ -103,7 +88,7 @@ void loop()
         Stop();
         delay(150);
         break;
-
+      //This is because the right sensor is far foward on the arduino this is an adjustment to make it drive forward enough to make the corner.
       case RIGHT_TURN_ONLY:
 
         Stop();
@@ -111,11 +96,13 @@ void loop()
         drive();
         delay(200);
         Stop();
-        delay(1000);
+        delay(100);
         rotateRight();
+        //The wheels are wonky and dont have the same power for turning this is to give more time to the right turn
         delay(turnDelay);
         drive();
-        delay(85);
+        //this is to get it around the corner farther
+        delay(600);
         Stop();
         break;
 
@@ -124,13 +111,19 @@ void loop()
         delay(100);
         break;
 
-      case CONT_LINE : 
+      case CONT_LINE:
+      //This is so it pulses frequentely while driving forward.
         drive();
         delay(55);
         Stop();
         break;
 
+      case WALL:
+        Stop();
+        break;
+
     }
   }
+  //This is to cause pauses between the pulses
   delay(50);
 }
