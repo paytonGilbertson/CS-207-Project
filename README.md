@@ -40,6 +40,7 @@ Afterwards, attach the ultrasonic sensor brackets to the front and right side of
 Once this is finished you can start connecting the push button where it connects to a resistor(560 ohms) which is then connected to 5v rail the other side should then be connect to your digital pin 7. On the opposite side it will be connected to the ground rail.
 
 Lastly, you need to connect another battery pack so you can run your Arduino with out plugging it in to a computer. There should be a plug-in on your Arduino where the battery pack can be connected to. As for placing, we placed ours at the front of the robot being held by a piece of wood screwed in from both sides by wood screws(this being below the cardboard and being screwed in through the circles on both sides at the front of the robots chassis) then placing it on top of the wood and holding it down with either Velcro or double sided tape.
+(Note: If the battery is incorrectly connected to the motor controller, the connection may begin to smoke and the red LED will not light up.)
 ![Schematic view of build](https://i.paste.pics/744a374b79d33c62b994b6f75df019f7.png)
 (Note: The software we used to create the schematic view did not contain the same Dual H bridge shield we used)
 
