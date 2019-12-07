@@ -2,7 +2,7 @@ long findDistance(const int& trigger,const int& echo)
 {
   //This is using the sensors to find the distance between the robot and the wall
   long durAt, distCm;
-  //This is the pulse the sensor sends it measures the time in the pulses to determine the distance
+  //This is the pulse the sensor sends, it measures the time in the pulses to determine the distance
   digitalWrite(trigger,LOW);
   delayMicroseconds(2);
   digitalWrite(trigger,HIGH);

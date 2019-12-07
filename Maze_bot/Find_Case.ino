@@ -1,12 +1,13 @@
 Mode findCase(long frontD, long rightD)
 {
-  //This runs into a dead end but is open on the right
   Mode case1;
+  //Has soon as the right sensor was open the arduino new to stop and turn to that direction
   if (rightD > 25 && rightD < 100)
   {
     case1 = RIGHT_TURN_ONLY;
   }
   //This case covers left turns and complete dead ends so it will turn 180 or turn left
+  //if the front sensor was at a certain threshold and if the right sensor could find a wall
   else if (frontD < 15 && rightD <= 25)
   {
     case1 = LEFT_TURN_ONLY;
@@ -21,12 +22,5 @@ Mode findCase(long frontD, long rightD)
   {
     case1 = NO_WALL;
   }
-  else if (frontD < 10)
-  {
-    case1 = WALL;
-  }
-
-
-
   return case1;
 }
