@@ -17,6 +17,7 @@ Materials:
 * 1 560k ohm resistor
 * 1 Arduino Uno
 * 2 Battery packs
+* 1 Button
 * 4 wood screws
 * 12 input wires
 * 26 output wires
