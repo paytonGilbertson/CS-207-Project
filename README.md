@@ -5,7 +5,8 @@ The project that we created is a maze solving robot that uses ultrasonic sensors
 The version is 0.9 because the robot is flawed and needs some help to solve the maze
 ![Image of MazeBot](https://i.paste.pics/13e393408e2848efce610b80ff6fa6bc.png)
 ## Repository Contents
-* **/Maze_bot** - All the code for the robot is stored here 
+* **/Maze_bot** - All the code for the robot is stored here
+* **/LICENSE** - Contains the license information about our project
 * **/README.md** - This file you are currently viewing
 
 ## Requirements and Materials
